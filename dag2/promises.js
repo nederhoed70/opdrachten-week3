@@ -9,6 +9,7 @@ const testNum = number => {
 };
 
 console.log(testNum(5));
+// opdr 2
 
 const makeAllCaps = array => {
 	return new Promise((resolve, reject) => {
