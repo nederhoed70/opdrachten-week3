@@ -19,16 +19,17 @@ const getFailingPromise = (message, mSeconds) => {
 
 const getRandomSucceedingOrFailingPromise = id => {
 	// This randomly resolves to true or false
-	let promiseShouldSucceed = () => {
-		random = Math.round(Math.random() * 1);
-
-		if (random === 1) {
-			return true;
-		} else {
-			return false;
-		}
-	};
-	// This gets some semi-random amound of seconds under the 5seconds:
+	let promiseShouldSucceed = Math.random() > 0.5;
+	// let random = Math.round(Math.random() * 1);
+	// let promiseShouldSucceed = () => {
+	// 	console.log(random);
+	// 	if (random == 1) {
+	// 		promiseShouldSucceed = false;
+	// 	} else {
+	// 		promiseShouldSucceed = false;
+	// 	}
+	// };
+	//This gets some semi-random amound of seconds under the 5seconds:
 	let randomMillisecond = Math.floor(Math.random() * 3000);
 
 	if (promiseShouldSucceed) {
@@ -78,8 +79,8 @@ const add50Promises = () => {
 };
 
 const consumePromise = function(allPromises, id) {
-	// console.log(allPromises);
-	console.log(id);
+	//console.log(allPromises);
+	//console.log(id);
 	const promise = getRandomSucceedingOrFailingPromise(id);
 	promise
 		.then(resolved => {
@@ -101,5 +102,3 @@ const registerEventHandlers = () => {
 document.addEventListener('DOMContentLoaded', () => {
 	registerEventHandlers();
 });
-
-console.log(Math.floor(Math.random() * 3000));
